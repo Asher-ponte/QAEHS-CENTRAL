@@ -1,91 +1,23 @@
 
 "use client";
 
+import type React from 'react';
+import { useEffect, useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Separator } from '@/components/ui/separator';
 import { Bell } from 'lucide-react';
-import type React from 'react';
-
-interface Announcement {
-  id: string;
-  title: string;
-  description: React.ReactNode; // Changed from string to React.ReactNode
-  date: string;
-}
-
-const announcements: Announcement[] = [
-  {
-    id: '1',
-    title: 'Scheduled System Maintenance',
-    description: 'All QAEHS apps will be unavailable on Saturday from 2 AM to 4 AM for scheduled maintenance.',
-    date: '2 days ago',
-  },
-  {
-    id: '2',
-    title: 'New Safety Protocol Update: Forklift Operation',
-    description: (
-      <>
-        Please review the updated forklift operation guidelines in the{' '}
-        <a 
-          href="http://10.232.248.62//learnhub_db/training.html" 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="text-primary hover:underline"
-        >
-          Safety Pro App
-        </a>
-        . Mandatory compliance by end of week.
-      </>
-    ),
-    date: '5 days ago',
-  },
-  {
-    id: '3',
-    title: 'Emergency Drill Next Week',
-    description: 'A site-wide emergency evacuation drill is scheduled for next Wednesday at 10:00 AM. Participation is mandatory.',
-    date: '1 week ago',
-  },
-  {
-    id: '4',
-    title: 'Updated E-Report App Guide',
-    description: (
-      <>
-        The guide for the E-Report App has been updated. You can find it{' '}
-        <a 
-          href="http://10.232.248.62/ehs%20pro%20app/guide.html"
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="text-primary hover:underline"
-        >
-          here
-        </a>.
-      </>
-    ),
-    date: '1 day ago',
-  },
-  {
-    id: '5',
-    title: 'How to Add New Announcements',
-    description: (
-      <>
-        This is a sample new announcement. You can add new ones by editing the `announcements` array in the `AnnouncementBoard.tsx` file.
-        Remember, you can also include links, for example, to the{' '}
-        <a 
-          href="http://10.232.248.62/sor/index.html"
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="text-primary hover:underline"
-        >
-          SOR App
-        </a>.
-      </>
-    ),
-    date: 'Just now',
-  }
-];
+import type { Announcement } from '@/lib/announcements';
+import { getAndSeedAnnouncements, formatAnnouncementDate } from '@/lib/announcements';
 
 export function AnnouncementBoard() {
+  const [announcements, setAnnouncements] = useState<Announcement[]>([]);
+
+  useEffect(() => {
+    // Load announcements from localStorage on client-side mount
+    setAnnouncements(getAndSeedAnnouncements());
+  }, []);
+
   return (
     <Card className="w-full shadow-lg rounded-xl">
       <CardHeader>
@@ -103,9 +35,19 @@ export function AnnouncementBoard() {
                 <div key={announcement.id}>
                   <div className="mb-2">
                     <h4 className="font-semibold text-md text-foreground">{announcement.title}</h4>
-                    <p className="text-xs text-muted-foreground">{announcement.date}</p>
+                    <p className="text-xs text-muted-foreground">{formatAnnouncementDate(announcement.date)}</p>
                   </div>
-                  <p className="text-sm text-muted-foreground">{announcement.description}</p>
+                  <p className="text-sm text-muted-foreground whitespace-pre-line">{announcement.description}</p>
+                  {announcement.linkUrl && announcement.linkText && (
+                    <a
+                      href={announcement.linkUrl}
+                      target={announcement.linkUrl.startsWith('/') ? '_self' : '_blank'}
+                      rel="noopener noreferrer"
+                      className="text-sm text-primary hover:underline mt-1 inline-block"
+                    >
+                      {announcement.linkText}
+                    </a>
+                  )}
                   {index < announcements.length - 1 && <Separator className="my-4" />}
                 </div>
               ))}
@@ -118,4 +60,3 @@ export function AnnouncementBoard() {
     </Card>
   );
 }
-
