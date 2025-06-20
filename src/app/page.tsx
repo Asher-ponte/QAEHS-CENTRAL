@@ -2,10 +2,12 @@
 "use client";
 
 import { useState } from 'react';
-import { FileText, Truck, Shield, BarChart2, type LucideIcon } from 'lucide-react';
+import { FileText, Truck, Shield, BarChart2, type LucideIcon, PlusCircle } from 'lucide-react';
+import Link from 'next/link';
 import { ServiceCard } from '@/components/service-card';
 import { AppModal } from '@/components/app-modal';
 import { AnnouncementBoard } from '@/components/announcement-board';
+import { Button } from '@/components/ui/button';
 
 interface Service {
   name: string;
@@ -67,6 +69,17 @@ export default function Home() {
           <AnnouncementBoard />
         </section>
 
+        {/* Admin Actions Section */}
+        <section aria-labelledby="admin-actions-title" className="p-6 border-t border-border">
+          <Link href="/admin/announcements" passHref legacyBehavior>
+            <Button variant="outline" className="w-full">
+              <PlusCircle className="mr-2 h-4 w-4" />
+              Create New Announcement
+            </Button>
+          </Link>
+        </section>
+
+
         {/* Spacer to respect padding-bottom from original design if needed, or rely on sections' padding */}
         <div className="pb-1"></div>
 
@@ -80,3 +93,4 @@ export default function Home() {
     </main>
   );
 }
+
