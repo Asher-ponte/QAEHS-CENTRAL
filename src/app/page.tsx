@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from 'react';
@@ -9,27 +10,31 @@ import { AnnouncementBoard } from '@/components/announcement-board';
 interface Service {
   name: string;
   icon: LucideIcon;
+  url: string;
 }
 
 const services: Service[] = [
-  { name: "SOR APP", icon: FileText },
-  { name: "FORKLIFT APP", icon: Truck },
-  { name: "SAFETY PRO APP", icon: Shield },
-  { name: "E-REPORT APP", icon: BarChart2 },
+  { name: "SOR APP", icon: FileText, url: "http://10.232.248.62/sor/index.html" },
+  { name: "FORKLIFT APP", icon: Truck, url: "http://10.232.248.62:9003/" },
+  { name: "SAFETY PRO APP", icon: Shield, url: "http://10.232.248.62//learnhub_db/training.html" },
+  { name: "E-REPORT APP", icon: BarChart2, url: "http://10.232.248.62/ehs%20pro%20app/index.html" },
 ];
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedApp, setSelectedApp] = useState<string | null>(null);
+  const [selectedAppUrl, setSelectedAppUrl] = useState<string | null>(null);
 
-  const handleServiceClick = (appName: string) => {
+  const handleServiceClick = (appName: string, appUrl: string) => {
     setSelectedApp(appName);
+    setSelectedAppUrl(appUrl);
     setIsModalOpen(true);
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
     setSelectedApp(null);
+    setSelectedAppUrl(null);
   };
 
   return (
@@ -51,7 +56,7 @@ export default function Home() {
                 key={service.name}
                 appName={service.name}
                 Icon={service.icon}
-                onClick={() => handleServiceClick(service.name)}
+                onClick={() => handleServiceClick(service.name, service.url)}
               />
             ))}
           </div>
@@ -66,7 +71,12 @@ export default function Home() {
         <div className="pb-1"></div>
 
       </div>
-      <AppModal isOpen={isModalOpen} onClose={closeModal} appName={selectedApp} />
+      <AppModal 
+        isOpen={isModalOpen} 
+        onClose={closeModal} 
+        appName={selectedApp} 
+        appUrl={selectedAppUrl} 
+      />
     </main>
   );
 }

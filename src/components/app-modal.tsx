@@ -1,3 +1,4 @@
+
 "use client";
 
 import {
@@ -14,26 +15,30 @@ interface AppModalProps {
   isOpen: boolean;
   onClose: () => void;
   appName: string | null;
+  appUrl: string | null;
 }
 
-export function AppModal({ isOpen, onClose, appName }: AppModalProps) {
-  if (!appName) return null;
+export function AppModal({ isOpen, onClose, appName, appUrl }: AppModalProps) {
+  if (!appName || !appUrl) return null;
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-[425px] w-[90%] max-w-[300px] rounded-xl">
         <DialogHeader className="text-center">
-          <DialogTitle className="text-xl font-bold font-headline text-foreground">Launching {appName}...</DialogTitle>
+          <DialogTitle className="text-xl font-bold font-headline text-foreground">Launching {appName}</DialogTitle>
           <DialogDescription className="text-muted-foreground pt-2">
-            You would now be redirected to the &quot;{appName}&quot;. (This is a simulation as direct app linking depends on mobile intents/deep links).
+            You are about to be redirected to the &quot;{appName}&quot;. Click the button below to proceed.
           </DialogDescription>
         </DialogHeader>
         <DialogFooter className="sm:justify-center">
           <Button 
-            onClick={onClose}
+            asChild 
             className="w-full sm:w-auto bg-accent hover:bg-accent/90 text-accent-foreground"
+            onClick={onClose} // Close modal when link is clicked
           >
-            Got It!
+            <a href={appUrl} target="_blank" rel="noopener noreferrer">
+              Open {appName}
+            </a>
           </Button>
         </DialogFooter>
       </DialogContent>
