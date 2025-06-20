@@ -71,7 +71,7 @@ export default function Home() {
 
         {/* Admin Actions Section */}
         <section aria-labelledby="admin-actions-title" className="p-6 border-t border-border">
-          <Link href="/admin/announcements" passHref legacyBehavior>
+          <Link href="/admin/announcements">
             <Button variant="outline" className="w-full">
               <PlusCircle className="mr-2 h-4 w-4" />
               Create New Announcement
