@@ -28,7 +28,7 @@ const announcements: Announcement[] = [
       <>
         Please review the updated forklift operation guidelines in the{' '}
         <a 
-          href="http://10.232.248.62//learnhub_db/training.html" // Example link
+          href="http://10.232.248.62//learnhub_db/training.html" 
           target="_blank" 
           rel="noopener noreferrer" 
           className="text-primary hover:underline"
@@ -53,7 +53,7 @@ const announcements: Announcement[] = [
       <>
         The guide for the E-Report App has been updated. You can find it{' '}
         <a 
-          href="http://10.232.248.62/ehs%20pro%20app/guide.html" // Example link
+          href="http://10.232.248.62/ehs%20pro%20app/guide.html"
           target="_blank" 
           rel="noopener noreferrer" 
           className="text-primary hover:underline"
@@ -63,6 +63,25 @@ const announcements: Announcement[] = [
       </>
     ),
     date: '1 day ago',
+  },
+  {
+    id: '5',
+    title: 'How to Add New Announcements',
+    description: (
+      <>
+        This is a sample new announcement. You can add new ones by editing the `announcements` array in the `AnnouncementBoard.tsx` file.
+        Remember, you can also include links, for example, to the{' '}
+        <a 
+          href="http://10.232.248.62/sor/index.html"
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="text-primary hover:underline"
+        >
+          SOR App
+        </a>.
+      </>
+    ),
+    date: 'Just now',
   }
 ];
 
@@ -99,3 +118,4 @@ export function AnnouncementBoard() {
     </Card>
   );
 }
+
