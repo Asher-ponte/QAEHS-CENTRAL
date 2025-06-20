@@ -1,14 +1,16 @@
+
 "use client";
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Separator } from '@/components/ui/separator';
 import { Bell } from 'lucide-react';
+import type React from 'react';
 
 interface Announcement {
   id: string;
   title: string;
-  description: string;
+  description: React.ReactNode; // Changed from string to React.ReactNode
   date: string;
 }
 
@@ -22,7 +24,20 @@ const announcements: Announcement[] = [
   {
     id: '2',
     title: 'New Safety Protocol Update: Forklift Operation',
-    description: 'Please review the updated forklift operation guidelines in the Safety Pro App. Mandatory compliance by end of week.',
+    description: (
+      <>
+        Please review the updated forklift operation guidelines in the{' '}
+        <a 
+          href="http://10.232.248.62//learnhub_db/training.html" // Example link
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="text-primary hover:underline"
+        >
+          Safety Pro App
+        </a>
+        . Mandatory compliance by end of week.
+      </>
+    ),
     date: '5 days ago',
   },
   {
@@ -31,6 +46,24 @@ const announcements: Announcement[] = [
     description: 'A site-wide emergency evacuation drill is scheduled for next Wednesday at 10:00 AM. Participation is mandatory.',
     date: '1 week ago',
   },
+  {
+    id: '4',
+    title: 'Updated E-Report App Guide',
+    description: (
+      <>
+        The guide for the E-Report App has been updated. You can find it{' '}
+        <a 
+          href="http://10.232.248.62/ehs%20pro%20app/guide.html" // Example link
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="text-primary hover:underline"
+        >
+          here
+        </a>.
+      </>
+    ),
+    date: '1 day ago',
+  }
 ];
 
 export function AnnouncementBoard() {
