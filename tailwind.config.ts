@@ -12,7 +12,7 @@ export default {
       fontFamily: {
         body: ['Inter', 'sans-serif'],
         headline: ['Inter', 'sans-serif'],
-        code: ['monospace'],
+        code: ['monospace', 'monospace'],
       },
       colors: {
         background: 'hsl(var(--background))',
@@ -67,9 +67,9 @@ export default {
         },
       },
       borderRadius: {
-        lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 2px)',
-        sm: 'calc(var(--radius) - 4px)',
+        lg: 'var(--radius)', // This will be 0.75rem
+        md: 'calc(var(--radius) - 2px)', // 0.75rem - 2px
+        sm: 'calc(var(--radius) - 4px)', // 0.75rem - 4px
       },
       keyframes: {
         'accordion-down': {
