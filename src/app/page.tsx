@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { FileText, Truck, Shield, BarChart2, type LucideIcon } from 'lucide-react';
 import { ServiceCard } from '@/components/service-card';
 import { AppModal } from '@/components/app-modal';
-import { SmartSafetyTipsForm } from '@/components/smart-safety-tips-form';
 import { AnnouncementBoard } from '@/components/announcement-board';
 
 interface Service {
@@ -56,11 +55,6 @@ export default function Home() {
               />
             ))}
           </div>
-        </section>
-
-        {/* Smart Safety Tips Section */}
-        <section aria-labelledby="safety-tips-title" className="p-6 border-t border-border">
-          <SmartSafetyTipsForm />
         </section>
 
         {/* Announcement Board Section */}
