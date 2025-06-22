@@ -48,7 +48,7 @@ nav ul li {
     color: white;
     padding: 15px 30px; /* Increased padding for a larger button feel */
     text-decoration: none;
-    border-radius: 8px; /* More rounded corners */
+    border-radius: 0px; /* Square corners */
     font-size: 1.2em; /* Larger font size */
     min-width: 200px; /* Minimum width for the links */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
