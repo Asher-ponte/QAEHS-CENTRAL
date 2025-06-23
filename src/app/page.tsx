@@ -6,9 +6,6 @@ export default function Home() {
       <header className="bg-primary/90 text-primary-foreground shadow-md">
         <div className="container mx-auto px-4 py-6">
           <h1 className="text-4xl font-bold font-headline tracking-tight">QAEHS Central</h1>
-          <p className="mt-1 text-primary-foreground/80">
-            Your unified portal for Quality, Health, Safety, and Environment management.
-          </p>
         </div>
       </header>
 
