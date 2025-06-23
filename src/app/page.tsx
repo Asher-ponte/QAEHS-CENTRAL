@@ -1,6 +1,4 @@
 import { AppLinks } from "@/components/app-links";
-import { TrainingSuggestion } from "@/components/training-suggestion";
-import { Separator } from "@/components/ui/separator";
 
 export default function Home() {
   return (
@@ -18,12 +16,6 @@ export default function Home() {
         <section className="mb-12">
           <h2 className="text-3xl font-semibold font-headline mb-6">Application Gateway</h2>
           <AppLinks />
-        </section>
-
-        <Separator className="my-12 bg-primary/20" />
-
-        <section id="training-suggestion">
-           <TrainingSuggestion />
         </section>
       </main>
 
