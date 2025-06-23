@@ -9,7 +9,7 @@ export default function Home() {
         </div>
       </header>
 
-      <main className="flex-grow container mx-auto px-4 py-12 md:py-16">
+      <main className="flex-grow container mx-auto px-4 py-8">
         <section>
           <AppLinks />
         </section>
