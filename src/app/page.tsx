@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       <header className="bg-primary text-primary-foreground shadow-md">
-        <div className="container mx-auto px-4 py-8">
+        <div className="container mx-auto px-4 py-4">
           <h1 className="text-4xl font-bold font-headline tracking-tight">QAEHS Central</h1>
         </div>
       </header>
