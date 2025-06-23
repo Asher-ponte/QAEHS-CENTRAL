@@ -11,7 +11,6 @@ export default function Home() {
 
       <main className="flex-grow container mx-auto px-4 py-12 md:py-16">
         <section>
-          <h2 className="text-3xl font-semibold font-headline mb-8">Application Gateway</h2>
           <AppLinks />
         </section>
       </main>
