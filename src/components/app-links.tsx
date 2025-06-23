@@ -38,7 +38,7 @@ const appLinks: AppLink[] = [
 
 export function AppLinks() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
       {appLinks.map((link) => (
         <a
           key={link.title}
@@ -47,14 +47,14 @@ export function AppLinks() {
           rel="noopener noreferrer"
           className="group block"
         >
-          <Card className="h-full bg-card/80 backdrop-blur-sm hover:bg-card transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/20">
-            <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-lg font-medium">{link.title}</CardTitle>
-              <link.icon className="w-6 h-6 text-primary" />
+          <Card className="h-full bg-card border hover:border-accent transition-all duration-300 ease-in-out transform hover:-translate-y-2 hover:shadow-xl hover:shadow-accent/10">
+            <CardHeader className="flex flex-row items-start justify-between pb-2">
+              <CardTitle className="text-xl font-medium">{link.title}</CardTitle>
+              <link.icon className="w-7 h-7 text-primary" />
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground">{link.description}</p>
-              <div className="flex items-center mt-4 text-sm font-medium text-primary group-hover:text-accent transition-colors">
+              <p className="text-base text-muted-foreground">{link.description}</p>
+              <div className="flex items-center mt-6 text-sm font-semibold text-primary group-hover:text-accent transition-colors">
                 Open Application
                 <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
               </div>
