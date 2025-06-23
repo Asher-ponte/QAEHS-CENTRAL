@@ -13,25 +13,25 @@ const appLinks: AppLink[] = [
   {
     title: "SOR App",
     description: "Submit and review Safety Observation Reports.",
-    href: "http://10.243.248.194:3000",
+    href: "http://10.232.248.194/sor",
     icon: ClipboardList,
   },
   {
     title: "Forklift Safety",
     description: "Access forklift operation and safety protocols.",
-    href: "http://10.243.248.194:3000",
+    href: "http://10.232.248.194:9003",
     icon: Truck,
   },
   {
     title: "QAEHS Training",
     description: "Browse and complete mandatory training modules.",
-    href: "#",
+    href: "http://10.232.248.194/learnhub",
     icon: BookOpenCheck,
   },
   {
     title: "EHS IR",
     description: "Report and manage Environmental Health & Safety Incidents.",
-    href: "#",
+    href: "http://10.232.248.194/ehs%20pro%20app/index.html",
     icon: Siren,
   },
 ];
